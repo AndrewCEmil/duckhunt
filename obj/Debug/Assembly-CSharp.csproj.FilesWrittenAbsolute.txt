@@ -1,0 +1,17 @@
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/ace/Desktop/Duck Hunt/obj/Debug/Assembly-CSharp.dll
+/Users/ace/Desktop/Duck Hunt/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/UnityEngine.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/UnityEditor.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Mono.Cecil.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Unity.DataContract.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/ace/Desktop/Duck Hunt/Temp/bin/Debug/Mono.Cecil.Mdb.dll
