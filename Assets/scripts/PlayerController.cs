@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour {
 			bullet.gameObject.transform.position = rb.position;
 			bullet.gameObject.SetActive (true);
 		}
+
+		if (Vector3.Distance(bullet.gameObject.transform.position, rb.position) > 20) {
+			bullet.gameObject.SetActive(false);
+		}
 	}
 
 	//Physics stuff in here
