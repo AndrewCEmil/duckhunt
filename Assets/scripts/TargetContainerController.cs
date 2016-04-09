@@ -3,13 +3,17 @@ using System.Collections;
 
 public class TargetContainerController : MonoBehaviour {
 	public GameObject target;
-	public TargetController targetController;
+	public GameObject bullet;
 	public GameObject player;
+
+	private TargetController targetController;
+	private BulletController bulletController;
 
 	// Use this for initialization
 	void Start () {
 		targetController = target.GetComponent<TargetController> ();
 		targetController.velocity = GetRandomVelocity ();
+		bulletController = bullet.GetComponent<BulletController> ();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +23,8 @@ public class TargetContainerController : MonoBehaviour {
 				target.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, 0, player.gameObject.transform.position.z);
 				targetController.velocity = GetRandomVelocity ();
 				target.gameObject.SetActive (true);
+				bulletController.targetCount++;
+				bulletController.UpdateScoreText ();
 			}
 		}
 	}

@@ -12,7 +12,7 @@ public class TargetController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		gameObject.transform.position = gameObject.transform.position + new Vector3 (velocity.x, 0, velocity.y);
 	}
 }

@@ -1,10 +1,11 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj" GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/BulletController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TargetController.cs">
     <Files>
-      <File FileName="Assets/scripts/TargetContainerController.cs" Line="18" Column="40" />
-      <File FileName="Assets/scripts/BulletController.cs" Line="19" Column="4" />
-      <File FileName="Assets/scripts/PlayerController.cs" Line="16" Column="1" />
+      <File FileName="Assets/scripts/TargetContainerController.cs" Line="26" Column="1" />
+      <File FileName="Assets/scripts/BulletController.cs" Line="29" Column="4" />
+      <File FileName="Assets/scripts/PlayerController.cs" Line="35" Column="18" />
+      <File FileName="Assets/scripts/TargetController.cs" Line="12" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
