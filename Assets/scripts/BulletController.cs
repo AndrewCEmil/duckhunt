@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BulletController : MonoBehaviour {
 	public Text scoreText;
+	public Text cockedText;
 
 	public int hitCount;
 	public int shotCount;
@@ -31,5 +32,13 @@ public class BulletController : MonoBehaviour {
 
 	public void UpdateScoreText() {
 		scoreText.text = "HITS: " + hitCount.ToString() + ", SHOTS: " + shotCount.ToString() + ", TARGETS: " + targetCount.ToString();
+	}
+
+	public void UpdateCockedText(bool isCocked) {
+		if (isCocked) {
+			cockedText.text = "GUN COCKED";
+		} else {
+			cockedText.text = "";
+		}
 	}
 }
