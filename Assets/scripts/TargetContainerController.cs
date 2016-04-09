@@ -6,30 +6,34 @@ public class TargetContainerController : MonoBehaviour {
 	public GameObject bullet;
 	public GameObject player;
 
-	private TargetController targetController;
 	private BulletController bulletController;
+	private Rigidbody targetRb;
+	private int missingFrames;
 
 	// Use this for initialization
 	void Start () {
-		targetController = target.GetComponent<TargetController> ();
-		targetController.velocity = GetRandomVelocity ();
 		bulletController = bullet.GetComponent<BulletController> ();
+		targetRb = target.GetComponent<Rigidbody> ();
+		missingFrames = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!target.gameObject.activeSelf) {
-			if (Random.Range (0, 100) > 49) { //50 : 50
-				target.gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, 0, player.gameObject.transform.position.z);
-				targetController.velocity = GetRandomVelocity ();
-				target.gameObject.SetActive (true);
+			if (missingFrames > 50) {
+				target.transform.position = player.transform.position + new Vector3(0,0,60);
+				target.SetActive (true);
+				targetRb.velocity = GetRandomVelocity ();
 				bulletController.targetCount++;
 				bulletController.UpdateScoreText ();
+				missingFrames = 0;
+			} else {
+				missingFrames++;
 			}
 		}
 	}
 
-	Vector2 GetRandomVelocity () {
-		return new Vector2 (((float)Random.Range (-8, 8)) / 100.0f, ((float)Random.Range (-8, 8)) / 100.0f);
+	Vector3 GetRandomVelocity () {
+		return new Vector3 ((float)Random.Range (-10, 10), (float)Random.Range (-10, 10), (float)Random.Range (0, 6));
 	}
 }
