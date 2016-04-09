@@ -34,6 +34,6 @@ public class TargetContainerController : MonoBehaviour {
 	}
 
 	Vector3 GetRandomVelocity () {
-		return new Vector3 ((float)Random.Range (-10, 10), (float)Random.Range (-10, 10), (float)Random.Range (0, 6));
+		return new Vector3 ((float)Random.Range (-10, 10), (float)Random.Range (-10, 10), (float)Random.Range (0, 0));
 	}
 }
