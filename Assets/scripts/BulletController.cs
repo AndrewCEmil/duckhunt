@@ -23,8 +23,7 @@ public class BulletController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("target")) {
 			other.gameObject.SetActive (false);
-			rb.velocity = new Vector3 (0, 0, 0);
-			gameObject.SetActive (false);
+			Finish ();
 			hitCount++;
 			UpdateScoreText ();
 		}
@@ -40,5 +39,9 @@ public class BulletController : MonoBehaviour {
 		} else {
 			cockedText.text = "";
 		}
+	}
+
+	public void Finish() {
+		gameObject.SetActive (false);
 	}
 }

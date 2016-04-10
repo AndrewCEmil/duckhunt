@@ -4,20 +4,26 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	public float speed;
+	public float phoneSpeed;
+	public float bulletWarpScaler;
 
 	public GameObject bullet;
 
 	private BulletController bulletController;
 	private Rigidbody rb;
 	private Rigidbody bulletRb;
+	private ConstantForce bulletForce;
 	private bool gunCocked;
+	private Vector3 lastMovement;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		bulletController = bullet.gameObject.GetComponent<BulletController> ();
 		bulletRb = bullet.GetComponent<Rigidbody> ();
+		bulletForce = bullet.GetComponent<ConstantForce> ();
 		gunCocked = false;
+		lastMovement = new Vector3 (0, 0, 0);
 	}
 
 	// Update is called once per frame
@@ -48,20 +54,24 @@ public class PlayerController : MonoBehaviour {
 			Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
 		
 			// Move object across XY plane
-			rb.transform.Translate (-touchDeltaPosition.x * speed, -touchDeltaPosition.y * speed, 0);
+			lastMovement.x = -touchDeltaPosition.x * phoneSpeed; 
+			lastMovement.y = -touchDeltaPosition.y * phoneSpeed; 
+			rb.transform.Translate (lastMovement);
 		}
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertial = Input.GetAxis ("Vertical");
-
-		Vector3 movement = new Vector3 (moveHorizontal, moveVertial, 0.0f);
-
-		//rb.AddForce (movement * speed);
-		rb.MovePosition (rb.position + movement * speed);
+		if (moveHorizontal != 0 || moveVertial != 0) {
+			lastMovement.x = moveHorizontal * speed;
+			lastMovement.y = moveVertial * speed;
+			//rb.AddForce (movement * speed);
+			rb.MovePosition (rb.position + lastMovement);
+		}
 	}
 
 	void ShootBullet() {
 		bullet.gameObject.transform.position = rb.position + new Vector3 (0.0f, 0.0f, 1.0f);
 		bulletRb.velocity = new Vector3 (0, 0, 50.0f);
+		bulletForce.force = lastMovement * bulletWarpScaler;
 		bullet.gameObject.SetActive (true);
 		bulletController.shotCount += 1;
 		bulletController.UpdateScoreText ();
