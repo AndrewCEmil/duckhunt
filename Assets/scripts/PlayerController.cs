@@ -40,11 +40,6 @@ public class PlayerController : MonoBehaviour {
 				ShootBullet ();
 			}
 		}
-
-		if (Vector3.Distance(bullet.gameObject.transform.position, rb.position) > 100) {
-			bullet.SetActive(false);
-			bullet.GetComponent<BulletController> ();
-		}
 	}
 
 	//Physics stuff in here
@@ -56,11 +51,12 @@ public class PlayerController : MonoBehaviour {
 			// Move object across XY plane
 			lastMovement.x = -touchDeltaPosition.x * phoneSpeed; 
 			lastMovement.y = -touchDeltaPosition.y * phoneSpeed; 
-			rb.transform.Translate (lastMovement);
+			//rb.transform.Translate (lastMovement);
 		}
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertial = Input.GetAxis ("Vertical");
 		if (moveHorizontal != 0 || moveVertial != 0) {
+
 			lastMovement.x = moveHorizontal * speed;
 			lastMovement.y = moveVertial * speed;
 			//rb.AddForce (movement * speed);
@@ -69,18 +65,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void ShootBullet() {
-		bullet.gameObject.transform.position = rb.position + new Vector3 (0.0f, 0.0f, 1.0f);
-		bulletRb.velocity = new Vector3 (0, 0, 50.0f);
-		bulletForce.force = lastMovement * bulletWarpScaler;
-		bullet.gameObject.SetActive (true);
-		bulletController.shotCount += 1;
-		bulletController.UpdateScoreText ();
+		bulletController.Shoot (rb.position, lastMovement);
 		gunCocked = false;
-		bulletController.UpdateCockedText (false);
 	}
 
 	void CockGun() {
 		gunCocked = true;
 		bulletController.UpdateCockedText (true);
+		lastMovement.x = 0;
+		lastMovement.y = 0;
+		lastMovement.z = 0;
 	}
 }
