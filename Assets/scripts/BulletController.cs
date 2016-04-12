@@ -70,7 +70,7 @@ public class BulletController : MonoBehaviour {
 		state = BulletControllerState.Frozen;
 		frameCount = 0;
 		rb.isKinematic = true;
-		transform.position = new Vector3 (transform.position.x, transform.position.y, ((float)target.transform.position.z) - 0.5f);
+		transform.position = new Vector3 (transform.position.x, transform.position.y, ((float)target.transform.position.z) - 0.8f);
 	}
 
 	public void Renew() {
