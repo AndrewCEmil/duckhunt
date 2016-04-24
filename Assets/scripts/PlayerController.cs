@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class PlayerController : MonoBehaviour {
 	public float speed;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private ConstantForce bulletForce;
 	private bool gunCocked;
 	private Vector3 lastMovement;
+	private Vector3 maxMovement;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 		bulletForce = bullet.GetComponent<ConstantForce> ();
 		gunCocked = false;
 		lastMovement = new Vector3 (0, 0, 0);
+		VariableHolder variables = GameObject.FindWithTag ("VariableHolder").GetComponent<VariableHolder> ();
+		phoneSpeed = variables.phoneSpeed;
 	}
 
 	// Update is called once per frame
@@ -60,11 +64,19 @@ public class PlayerController : MonoBehaviour {
 			lastMovement.x = moveHorizontal * speed;
 			lastMovement.y = moveVertial * speed;
 			//rb.AddForce (movement * speed);
+			if (Math.Abs(lastMovement.x) > Math.Abs(maxMovement.x)) {
+				maxMovement.x = lastMovement.x;
+			}
+			if (Math.Abs(lastMovement.y) > Math.Abs(maxMovement.y)) {
+				maxMovement.y = lastMovement.y;
+			}
 			rb.MovePosition (rb.position + lastMovement);
 		}
 	}
 
 	void ShootBullet() {
+		Debug.Log ("ShootBullet called.  Last: " + lastMovement.ToString () + ", Max: " + (maxMovement * phoneSpeed).ToString());
+		//bulletController.Shoot (rb.position, maxMovement * phoneSpeed);
 		bulletController.Shoot (rb.position, lastMovement);
 		gunCocked = false;
 	}
@@ -75,5 +87,8 @@ public class PlayerController : MonoBehaviour {
 		lastMovement.x = 0;
 		lastMovement.y = 0;
 		lastMovement.z = 0;
+		maxMovement.x = 0;
+		maxMovement.y = 0;
+		maxMovement.z = 0;
 	}
 }

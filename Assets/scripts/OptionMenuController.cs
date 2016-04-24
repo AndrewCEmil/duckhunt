@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class OptionMenuController : MonoBehaviour {
+
+	public Toggle gravityToggle;
+	public Slider warpSlider;
+
+	public void LoadMain() {
+		SceneManager.LoadScene("Main");
+	}
+
+	public void LoadMainMenu() {
+		SetVariables ();
+		SceneManager.LoadScene ("menu");
+	}
+
+
+	void SetVariables() {
+
+		VariableHolder variables = GameObject.FindWithTag ("VariableHolder").GetComponent<VariableHolder> ();
+		variables.useGravity = gravityToggle.isOn;
+		variables.phoneSpeed = (warpSlider.value + .1f) * .7f;
+	}
+}
