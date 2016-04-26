@@ -7,6 +7,7 @@ public class OptionMenuController : MonoBehaviour {
 
 	public Toggle gravityToggle;
 	public Slider warpSlider;
+	public Toggle inversionToggle;
 
 	public void LoadMain() {
 		SceneManager.LoadScene("Main");
@@ -19,9 +20,9 @@ public class OptionMenuController : MonoBehaviour {
 
 
 	void SetVariables() {
-
 		VariableHolder variables = GameObject.FindWithTag ("VariableHolder").GetComponent<VariableHolder> ();
 		variables.useGravity = gravityToggle.isOn;
 		variables.phoneSpeed = (warpSlider.value + .1f) * .7f;
+		variables.invertControl = inversionToggle.isOn;
 	}
 }

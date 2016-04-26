@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody bulletRb;
 	private ConstantForce bulletForce;
 	private bool gunCocked;
+	private bool inversionOn;
 	private Vector3 lastMovement;
 	private Vector3 maxMovement;
 
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		lastMovement = new Vector3 (0, 0, 0);
 		VariableHolder variables = GameObject.FindWithTag ("VariableHolder").GetComponent<VariableHolder> ();
 		phoneSpeed = variables.phoneSpeed;
+		inversionOn = variables.invertControl;
 	}
 
 	// Update is called once per frame
@@ -77,7 +79,11 @@ public class PlayerController : MonoBehaviour {
 	void ShootBullet() {
 		Debug.Log ("ShootBullet called.  Last: " + lastMovement.ToString () + ", Max: " + (maxMovement * phoneSpeed).ToString());
 		//bulletController.Shoot (rb.position, maxMovement * phoneSpeed);
-		bulletController.Shoot (rb.position, lastMovement);
+		if (inversionOn) {
+			bulletController.Shoot (rb.position, lastMovement);
+		} else {
+			bulletController.Shoot (rb.position, lastMovement * -1.0f);
+		}
 		gunCocked = false;
 	}
 

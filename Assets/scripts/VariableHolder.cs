@@ -4,6 +4,7 @@ using System.Collections;
 public class VariableHolder : MonoBehaviour {
 
 	public bool useGravity;
+	public bool invertControl;
 	public float phoneSpeed; 
 
 	private static GameObject instance;

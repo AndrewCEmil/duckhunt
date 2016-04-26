@@ -32,9 +32,10 @@ public class BulletController : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		bulletForce = GetComponent<ConstantForce> ();
 	}
-		
+
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("target")) {
+			Handheld.Vibrate();
 			targetContainerController.Freeze ();
 			hitCount++;
 			UpdateScoreText ();
