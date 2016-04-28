@@ -25,4 +25,11 @@ public class OptionMenuController : MonoBehaviour {
 		variables.phoneSpeed = (warpSlider.value + .1f) * .7f;
 		variables.invertControl = inversionToggle.isOn;
 	}
+
+	void Awake() {
+		VariableHolder variables = GameObject.FindWithTag ("VariableHolder").GetComponent<VariableHolder> ();
+		gravityToggle.isOn = variables.useGravity;
+		warpSlider.value = (variables.phoneSpeed / .7f) - .1f;
+		inversionToggle.isOn = variables.invertControl;
+	}
 }
