@@ -1,19 +1,23 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" GitUserInfo="UsingMD" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/OptionMenuController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/materials/BackgroundShader.shader">
     <Files>
-      <File FileName="Assets/scripts/MainController.cs" Line="6" Column="27" />
-      <File FileName="Assets/scripts/VariableHolder.cs" Line="15" Column="11" />
-      <File FileName="Assets/scripts/OptionMenuController.cs" Line="22" Column="1" />
-      <File FileName="Assets/scripts/LoadScene.cs" Line="13" Column="1" />
+      <File FileName="Assets/materials/BackgroundShader.shader" Line="25" Column="15" />
+      <File FileName="Assets/scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/OptionMenuController.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/MainController.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/VariableHolder.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/LoadScene.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/BulletController.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/DontDestroy.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/MainController.cs" line="24" column="1" />
       <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/OptionMenuController.cs" line="23" column="1" />
-      <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/LoadScene.cs" line="13" column="1" />
-      <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/PlayerController.cs" line="78" column="1" />
+      <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/PlayerController.cs" line="80" column="1" />
+      <Breakpoint file="/Users/ace/Desktop/Duck Hunt/Assets/scripts/OptionMenuController.cs" line="32" column="56" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
